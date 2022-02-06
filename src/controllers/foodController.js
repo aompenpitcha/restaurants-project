@@ -24,18 +24,17 @@ const getByID = (req,res) => {
     res.send(food); 
 };
 
-const deleteByID = (req,res) => {
-    const {id} = req.params;
-    
+const deleteByID = (req, res) => {
+    const id = req.params.id;
+  
     db.get('foods')
-    .filter((food) => food.id != id)
-    .save();
-    console.log(foods)
-
+      .filter((food) => food.id != id)
+      .save();
+  
     res.status(200).send({
-        success: 'ok',
+      success: 'ok',
     });
-};
+  };
 
 const updatefoodByID = (req,res) => {
     const {id} = req.params;
